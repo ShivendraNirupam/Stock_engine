@@ -87,6 +87,6 @@ namespace exchange::core {
     static_assert(std::is_trivially_copyable_v<OrderType>);
     static_assert(std::is_trivially_copyable_v<OrderStatus>);
     static_assert(std::is_trivially_copyable_v<Symbol>);
-
+    
      
 }
