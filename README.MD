@@ -4,7 +4,6 @@ I'm building a small stock exchange from scratch in modern C++20.
 
 The goal is to build a low-latency, single-threaded limit order book and matching engine without relying on an external matching library. One of the main constraints is that the hot path should not perform dynamic allocations.
 
-This is **Part 1** of the project, so for now I'm focusing on the matching engine itself. Networking, a real trader terminal, and a liquidity bot will come in the next parts.
 
 ## Current Status
 
@@ -17,6 +16,10 @@ The remaining entry points are still placeholders:
 - `liquidity_bot.cpp`
 
 They currently just print `"Hello World"`. I haven't connected the engine to a real process boundary yet, whether that's a CLI, IPC, or network interface. That's one of the next things I want to tackle.
+
+## Reference
+https://www.systemdesignhandbook.com/guides/design-a-stock-exchange-system/
+
 
 ## Architecture
 
