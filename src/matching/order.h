@@ -8,7 +8,9 @@
 namespace exchange::matching {
 
     struct Level;
-    
+
+    // qty is the total open quantity. For icebergs qty == display_qty +
+    // hidden_qty; for everything else display_qty == qty and hidden_qty == 0.
     struct alignas(64) Order {
         core::OrderId id{0};
         core::Side side{ core::Side::BUY };
@@ -32,5 +34,5 @@ namespace exchange::matching {
     };
 
     static_assert(sizeof(Order) <= 128, "Order should stay compact enough for cache-friendly access.");
-    
+
 }

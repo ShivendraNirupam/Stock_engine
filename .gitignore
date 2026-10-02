@@ -1,1 +1,7 @@
-build
+build/
+build-*/
+cmake-build-*/
+compile_commands.json
+*.journal
+.vscode/
+.idea/

@@ -7,7 +7,7 @@
 #include <type_traits>
 
 namespace exchange::core {
-    
+
     using Price = std::int64_t;
 
     using Quantity = std::uint32_t;
@@ -27,7 +27,7 @@ namespace exchange::core {
     enum class Side : std::uint8_t {
         BUY,
         SELL
-    };                                                                                                                                                                                                                                                                        
+    };
 
     enum class OrderType : std::uint8_t {
         LIMIT,
@@ -51,7 +51,7 @@ namespace exchange::core {
 
     using Symbol = std::array<char, 8>;
 
-    constexpr Symbol make_symbol(std::string_view text) noexcept {
+    [[nodiscard]] constexpr Symbol make_symbol(std::string_view text) noexcept {
         Symbol symbol{};
         const auto length = std::min(symbol.size(), text.size());
         for(std::size_t index = 0; index < length; ++index) {
@@ -61,7 +61,7 @@ namespace exchange::core {
         return symbol;
     }
 
-    const std::string_view symbol_view(const Symbol &symbol) noexcept {
+    [[nodiscard]] constexpr std::string_view symbol_view(const Symbol &symbol) noexcept {
         std::size_t length = 0;
         while(length < symbol.size() && symbol[length] != '\0') {
             ++length;
@@ -87,6 +87,5 @@ namespace exchange::core {
     static_assert(std::is_trivially_copyable_v<OrderType>);
     static_assert(std::is_trivially_copyable_v<OrderStatus>);
     static_assert(std::is_trivially_copyable_v<Symbol>);
-    
-     
+
 }
